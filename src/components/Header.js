@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function Header() {
   return (
@@ -19,6 +20,22 @@ export default function Header() {
         <a href='/#'>Tesla Account</a>
         <CustomMenu />
       </RightMenu>
+      <BurgerNav>
+        <CloseWraper>
+          <CustomClose />
+        </CloseWraper>
+        <li><a href='#'>Existing Inventory</a></li>
+        <li><a href='#'>Used Inventory</a></li>
+        <li><a href='#'>Trade-In</a></li>
+        <li><a href='#'>Cyber Truck</a></li>
+        <li><a href='#'>Roadaster</a></li>
+        <li><a href='#'>Test Drive</a></li>
+        <li><a href='#'>Find Us</a></li>
+        <li><a href='#'>Charging</a></li>
+        <li><a href='#'>Company Cars</a></li>
+        <li><a href='#'>Account</a></li>
+        <li><a href='#'>More</a></li>
+      </BurgerNav>
     </Container>
   )
 }
@@ -33,6 +50,7 @@ const Container = styled.div`
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
 `
 const Menu = styled.div`
   display: flex;
@@ -40,7 +58,6 @@ const Menu = styled.div`
   justify-content: center;
   flex: 1;
   a {
-    font-weight: 600;
     text-transform: uppercase;
     padding: 0 10px;
     flex-wrap: no-wrap;
@@ -52,7 +69,7 @@ const Menu = styled.div`
 `
 const RightMenu = styled.div`
 display: flex;
-align0items: center;
+align-items: center;
 a {
   font-weight: 600;
   text-transform: uppercase;
@@ -61,5 +78,35 @@ a {
 `
 
 const CustomMenu = styled(MenuIcon)`
+  cursor: pointer;
+`
+
+const BurgerNav = styled.div`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: white;
+  width: 400px;
+  z-index: 16;
+  list-style: none;
+  padding: 25px;
+  text-align: start;
+  li{
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  a:hover{
+    color: blue;
+  }
+`
+
+const CloseWraper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+const CustomClose = styled(CloseIcon)`
   cursor: pointer;
 `
