@@ -16,10 +16,10 @@ export default function Header() {
         <img src="/images/logo.svg" alt="" />
       </a>
       <Menu>
-        <a href="/#" >Model S</a>
-        <a href="/#" >Model 3</a>
-        <a href="/#" >Model X</a>
-        <a href="/#" >Model Y</a>
+        {cars && cars.map((car, index) => (
+          <a key={index} href="/#" >{car}</a>)
+        )}
+
       </Menu>
       <RightMenu>
         <a href='/#'>Shop</a>
@@ -98,7 +98,7 @@ const BurgerNav = styled.div`
   list-style: none;
   padding: 25px;
   text-align: start;
-  transform: ${props => props.show ? 'translateX(0)': 'translateX(100%)'};
+  transform: ${props => props.show ? 'translateX(0)' : 'translateX(100%)'};
   li{
     padding: 18px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
