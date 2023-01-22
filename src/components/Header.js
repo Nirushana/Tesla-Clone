@@ -30,6 +30,10 @@ export default function Header() {
         <CloseWraper>
           <CustomClose onClick={() => setBurgerStatus(false)} />
         </CloseWraper>
+        {cars && cars.map((car, index) => (
+          <li key={index}><a href='#'>{car}</a></li>
+        )
+        )}
         <li><a href='#'>Existing Inventory</a></li>
         <li><a href='#'>Used Inventory</a></li>
         <li><a href='#'>Trade-In</a></li>
